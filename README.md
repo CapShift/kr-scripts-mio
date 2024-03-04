@@ -1,7 +1,3 @@
-# 注意：3.9.2 之后版本的开发文档，改为随示例APK发布
-# 在线的文档将不再同步更新
-# 以下内容仅适于3.9.1及以前的版本
-
 ## 简介
 
 ### 功能用途
@@ -37,10 +33,5 @@
     - [其它提示](./docs/Other.md)
     - [kr-script.conf](./docs/kr-script.conf.md) 深入了解启动过程
 
-### 界面展示
-- 在开始之前，不妨先看看界面。
-- 也可以下载最新的release安装包
-- 在你已经ROOT的手机或模拟器上查看效果
-- [已发布的 Release版本](https://github.com/helloklf/kr-scripts/releases)
 
 <img src="./docs/exhibition/home.jpg" height="auto" width="49%" /> <img src="./docs/exhibition/favorite.jpg" height="auto" width="49%" /> <img src="./docs/exhibition/more.jpg" height="auto" width="49%" /> <img src="./docs/exhibition/action-params.jpg" height="auto" width="49%" />
