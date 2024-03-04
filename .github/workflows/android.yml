@@ -23,10 +23,23 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'
+        distribution: 'adopt'
         cache: gradle
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      id: build
+      run: |
+        echo 'org.gradle.jvmargs=-Xmx3072m' >> gradle.properties
+        chmod -R 777 *
+        ./gradlew :app:assembleRelease
+        echo "APkFileName=$(find app/build/outputs/apk/release -name "*.apk")" >> $GITHUB_ENV
+        echo "::set-output name=status::success"
+
+    - name: Upload Artefact
+      uses: actions/upload-artifact@main
+      if: steps.build.outputs.status == 'success' && !cancelled()
+      with:
+        name: app-release
+        path: ${{ env.APkFileName }}
